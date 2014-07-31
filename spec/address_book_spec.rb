@@ -22,3 +22,30 @@ describe Contact do
     end
   end
 end
+
+describe Email do
+  describe "initialize" do
+    it "creates a new email object" do
+      new_email = Email.new("dbcooper@dbcooper.io")
+      new_email.email.should eq "dbcooper@dbcooper.io"
+    end
+  end
+end
+
+describe Address do
+  describe "initialize" do
+    it "creates a new address object" do
+      new_address = Address.new("Unknown")
+      new_address.address.should eq "Unknown"
+    end
+  end
+end
+
+describe Phone do
+  describe "initialize" do
+    it "creates a new phone object" do
+      new_address = Phone.new("5031234567")
+      new_address.phone.should eq "5031234567"
+    end
+  end
+end

@@ -31,9 +31,17 @@ def main_menu
         Contact.contacts.each do |contact|
           puts contact.name
         end
-        puts "Press 'e' to edit a contact or 'd' to delete a contact"
+        puts "Press 'v' to view a contact, 'e' to edit a contact or 'd' to delete a contact"
         second_choice = gets.chomp
         case second_choice
+          when 'v'
+            Contact.contacts.each do |contact|
+              puts "name: " + contact.name
+              puts "email: " + contact.email
+              puts "address: " + contact.address
+              puts "phone: " + contact.phone
+            end
+
           when 'e'
             Contact.contacts.each do |contact|
               puts contact.name

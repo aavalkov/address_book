@@ -5,6 +5,10 @@ require 'email'
 require 'address'
 
 describe Contact do
+  before do
+    Contact.clear
+  end
+
   describe "initialize" do
     it "initializes a contact with name" do
       db_cooper = Contact.new("DB Cooper", "dbcooper@gmail.com",
@@ -19,6 +23,12 @@ describe Contact do
       db_cooper.email.should eq ("dbcooper@gmail.com")
       db_cooper.address.should eq ("1234 Forest RD SW Washington")
       db_cooper.phone.should eq ("3601234567")
+    end
+
+    it "saves the contact to a list" do
+      db_cooper = Contact.new("DB Cooper", "dbcooper@gmail.com",
+                    "1234 Forest RD SW Washington", "3601234567")
+      Contact.contacts.should eq [db_cooper]
     end
   end
   describe 'edit_name' do
@@ -35,6 +45,31 @@ describe Contact do
                     "1234 Forest RD SW Washington", "3601234567")
       db_cooper.edit_email("dbcooper@dbcooper.io")
       db_cooper.email.should eq ("dbcooper@dbcooper.io")
+    end
+  end
+  describe 'edit_phone' do
+    it 'changes the phone number of a contact' do
+      db_cooper = Contact.new("DB Cooper", "dbcooper@gmail.com",
+                    "1234 Forest RD SW Washington", "3601234567")
+      db_cooper.edit_phone("5031234567")
+      db_cooper.phone.should eq ("5031234567")
+    end
+  end
+  describe 'edit_address' do
+    it 'changes the address of a contact' do
+      db_cooper = Contact.new("DB Cooper", "dbcooper@gmail.com",
+                    "1234 Forest RD SW Washington", "3601234567")
+      db_cooper.edit_address("Unknown")
+      db_cooper.address.should eq ("Unknown")
+    end
+  end
+
+  describe 'delete_contact' do
+    it 'deltets a contact' do
+      db_cooper = Contact.new("DB Cooper", "dbcooper@gmail.com",
+                    "1234 Forest RD SW Washington", "3601234567")
+      Contact.delete_contact("DB Cooper")
+      Contact.contacts.should eq []
     end
   end
 end

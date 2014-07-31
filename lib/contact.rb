@@ -17,4 +17,7 @@ class Contact
   def phone
     @phone
   end
+  def edit_name(new_name)
+    @name = new_name
+  end
 end

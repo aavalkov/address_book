@@ -21,6 +21,14 @@ describe Contact do
       db_cooper.phone.should eq ("3601234567")
     end
   end
+  describe 'edit_name' do
+    it 'changes the name of a contact' do
+      db_cooper = Contact.new("DB Cooper", "dbcooper@gmail.com",
+                    "1234 Forest RD SW Washington", "3601234567")
+      db_cooper.edit_name("Joe Cooper")
+      db_cooper.name.should eq ("Joe Cooper")
+    end
+  end
 end
 
 describe Email do

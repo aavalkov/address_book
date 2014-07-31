@@ -20,4 +20,7 @@ class Contact
   def edit_name(new_name)
     @name = new_name
   end
+  def edit_email(new_email)
+    @email = new_email
+  end
 end

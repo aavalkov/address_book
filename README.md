@@ -7,10 +7,10 @@ July 31th, 2014
 __________________
 
 ###About
-Ruby app that allows users to enter contacts into an address book. Can edit, delete, and create contacts.
+This Ruby OO app that allows users to enter, edit, delete, and create contacts in an address book.
 
 ###Setup
-Either clone this repository or download the .zip and open in your console or sublime.
+Clone this repo, make sure you have ruby installed, run ruby address_book.rb in your terminal to create your own address book.
 
 ###License
 MIT
